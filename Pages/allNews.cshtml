@@ -1,0 +1,63 @@
+﻿@page
+@model NewsPortal.Pages.allNewsModel
+@{
+}
+
+<h2>News</h2>
+<p>
+    <a asp-page="News">Add News </a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayName("Category")
+            </th>
+            <th>
+                @Html.DisplayName("Head Line ")
+            </th>
+            <th>
+                @Html.DisplayName("Description")
+            </th>
+            <th>
+                @Html.DisplayName("City")
+            </th>
+            <th>
+                @Html.DisplayName("Author")
+            </th>
+            <th>
+                @Html.DisplayName("Date ")
+            </th>
+            <th>Edit | Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.CustomerList)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NCategory)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HLine)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NDetails)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NCity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NAuthor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NDate)
+            </td>
+            <td>
+                <a asp-page="./EditNews" asp-route-id="@item.NewsID">Edit</a> |
+                <a asp-page="./allNews" onclick="return confirm('Are you sure you want to delete this news?');" asp-page-handler="Delete" asp-route-id="@item.NewsID">Delete</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table> 

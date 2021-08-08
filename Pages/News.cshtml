@@ -1,0 +1,75 @@
+﻿@page
+@model NewsPortal.Pages.NewsModel
+@{
+}
+
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+
+
+<div class="container">
+    <h3>Add News</h3>
+    <hr />
+    <br />
+    <form method="post">
+        <div class="row">
+            <div class="col-md-4">
+                <label asp-for="news.NCategory">Select Category</label>
+                <select asp-for="news.NCategory" class="form-control">
+                    @foreach (var item in Model.Category)
+                    {
+                        <option value="@item.CName">@item.CName</option>
+                    }
+                </select>
+                <span class="alert-danger" asp-validation-for="news.NCategory"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <label asp-for="news.NAuthor">Select Author</label>
+                <select asp-for="news.NAuthor" class="form-control">
+                    @foreach (var item in Model.AuthorList)
+                    {
+                        <option value="@item.AName">@item.AName</option>
+                    }
+                </select>
+                <span class="alert-danger" asp-validation-for="news.NAuthor"></span>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <label asp-for="news.HLine">Headline</label>
+                <input asp-for="news.HLine" class="form-control" />
+                <span class="alert-danger" asp-validation-for="news.HLine"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <label asp-for="news.NDetails">Details</label>
+                <input asp-for="news.NDetails" class="form-control" />
+                <span class="alert-danger" asp-validation-for="news.NDetails"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <label asp-for="news.NCity">City</label>
+                <input asp-for="news.NCity" class="form-control" />
+                <span class="alert-danger" asp-validation-for="news.NCity"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <label asp-for="news.NDate">Date</label>
+                <input asp-for="news.NDate" class="form-control" />
+                <span class="alert-danger" asp-validation-for="news.NDate"></span>
+            </div>
+        </div>
+        <br />
+        <input type="submit" value="Save" class="btn btn-primary" />
+        <a class="btn btn-default" href="/allNews">Cancel</a>
+    </form>
+</div>
+

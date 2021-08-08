@@ -1,0 +1,45 @@
+﻿@page
+@model NewsPortal.Pages.allAuthorModel
+@{
+}
+
+<h2>Author</h2>
+<p>
+    <a asp-page="Authors">Add Author </a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayName("Name")
+            </th>
+            <th>
+                @Html.DisplayName("Email")
+            </th>
+            <th>
+                @Html.DisplayName("Username")
+            </th>
+            <th>Edit | Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.AuthorList)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AEmail)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AUsername)
+                </td>
+                <td>
+                    <a asp-page="./editAuthor" asp-route-id="@item.AuthorID">Edit</a> |
+                    <a asp-page="./allAuthor" onclick="return confirm('Are you sure you want to delete this author?');" asp-page-handler="Delete" asp-route-id="@item.AuthorID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table> 

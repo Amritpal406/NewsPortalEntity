@@ -1,0 +1,48 @@
+﻿@page
+@model NewsPortal.Pages.editAuthorModel
+@{
+}
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+
+<div class="container">
+    <h3>Update Author</h3>
+    <hr />
+    <br />
+    <form method="post">
+        <div class="row">
+            <div class="col-md-4">
+                <label asp-for="author.AName">Author Name</label>
+                <input asp-for="author.AName" class="form-control" />
+                <span class="alert-danger" asp-validation-for="author.AName"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <label asp-for="author.AEmail">Email</label>
+                <input type="email" asp-for="author.AEmail" class="form-control" />
+                <span class="alert-danger" asp-validation-for="author.AEmail"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <label asp-for="author.AUsername">Username</label>
+                <input asp-for="author.AUsername" class="form-control" />
+                <span class="alert-danger" asp-validation-for="author.AUsername"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <label asp-for="author.APassword">Password</label>
+                <input asp-for="author.APassword" class="form-control" />
+                <span class="alert-danger" asp-validation-for="author.APassword"></span>
+            </div>
+        </div>
+        <br />
+        <input type="submit" value="Save" class="btn btn-primary" />
+        <a class="btn btn-default" href="/allAuthor">Cancel</a>
+    </form>
+</div>
+

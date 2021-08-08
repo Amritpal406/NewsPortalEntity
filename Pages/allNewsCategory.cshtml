@@ -1,0 +1,38 @@
+﻿@page
+@model NewsPortal.Pages.allNewsCategory
+@{
+}
+
+<h2>Category</h2>
+<p>
+    <a asp-page="addNewsCategory">Add Category </a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayName("Category Name")
+            </th>
+            <th>
+                @Html.DisplayName("Description")
+            </th>
+            <th>Edit | Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.CategoriesList)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CDescription)
+                </td>
+                <td>
+                    <a asp-page="./editCategory" asp-route-id="@item.CategoriesID">Edit</a> |
+                    <a asp-page="./allNewsCategory" onclick="return confirm('Are you sure you want to delete this category?');" asp-page-handler="Delete" asp-route-id="@item.CategoriesID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
